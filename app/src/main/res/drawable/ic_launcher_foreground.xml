@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Phone silhouette -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M38,26 C35.79,26 34,27.79 34,30 L34,78 C34,80.21 35.79,82 38,82 L70,82 C72.21,82 74,80.21 74,78 L74,30 C74,27.79 72.21,26 70,26 L38,26 Z M38,32 L70,32 L70,72 L38,72 Z M54,78 C52.9,78 52,77.1 52,76 C52,74.9 52.9,74 54,74 C55.1,74 56,74.9 56,76 C56,77.1 55.1,78 54,78 Z" />
+    <!-- Serene mindful wave / leaf inside screen -->
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M54,40 C46,40 42,47 42,54 C42,61 48,64 54,64 C60,64 66,61 66,54 C66,47 62,40 54,40 Z M54,60 C50,60 46,57.5 46,53 C46,49 49.5,44 54,44 C58.5,44 62,49 62,53 C62,57.5 58,60 54,60 Z" />
+    <path
+        android:fillColor="#E2E8F0"
+        android:pathData="M54,46 C52,48 50,51 50,54 C50,56.5 51.8,58 54,58 C56.2,58 58,56.5 58,54 C58,51 56,48 54,46 Z" />
+</vector>

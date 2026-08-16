@@ -1,0 +1,6 @@
+{
+  "name": "ScreenSense",
+  "description": "Privacy-first digital wellness companion that analyzes Android app usage patterns to suggest one supportive, non-judgmental wellness action.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
