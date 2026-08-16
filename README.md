@@ -12,9 +12,6 @@
 
 > **Built for CS Girlies Annual Hackathon — Technology For Wellness**  
 > *Smart, friendly digital wellness for Android*
-
-[![CS Girlies Hackathon](https://img.shields.io/badge/CS%20Girlies%20Annual%20Hackathon-Technology%20For%20Wellness-FF69B4?style=flat-square&logo=sparkles&logoColor=white)](https://github.com/)
-[![Built in 48 Hours](https://img.shields.io/badge/Sprint-48%20Hours-FF4081?style=flat-square)](https://github.com/)
 [![Android](https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white)](https://developer.android.com/)
 
 
