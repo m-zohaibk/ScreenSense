@@ -51,7 +51,7 @@ object GeminiAiService {
         todayDate: String
     ): GeminiAnalysisResult? = withContext(Dispatchers.IO) {
         val apiKey = BuildConfig.GEMINI_API_KEY
-        if (apiKey.isBlank() || apiKey == "MY_GEMINI_API_KEY" || apiKey.contains("placeholder", ignoreCase = true)) {
+        if (apiKey.isBlank() || apiKey == "MY_GEMINI_API_KEY" || apiKey == "YOUR_GEMINI_API_KEY" || apiKey.contains("placeholder", ignoreCase = true)) {
             Log.w(TAG, "Gemini API key is not configured or is placeholder. Using smart dynamic fallback.")
             return@withContext null
         }

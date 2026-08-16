@@ -37,7 +37,7 @@ object GeminiWellnessService {
             ""
         }
 
-        if (apiKey.isBlank() || apiKey == "MY_GEMINI_API_KEY") {
+        if (apiKey.isBlank() || apiKey == "MY_GEMINI_API_KEY" || apiKey == "YOUR_GEMINI_API_KEY" || apiKey.contains("placeholder", ignoreCase = true)) {
             return@withContext baseAction // Seamless local fallback
         }
 
