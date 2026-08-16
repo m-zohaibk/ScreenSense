@@ -16,11 +16,6 @@
 [![CS Girlies Hackathon](https://img.shields.io/badge/CS%20Girlies%20Annual%20Hackathon-Technology%20For%20Wellness-FF69B4?style=flat-square&logo=sparkles&logoColor=white)](https://github.com/)
 [![Built in 48 Hours](https://img.shields.io/badge/Sprint-48%20Hours-FF4081?style=flat-square)](https://github.com/)
 [![Android](https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white)](https://developer.android.com/)
-[![Kotlin](https://img.shields.io/badge/Language-Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white)](https://kotlinlang.org/)
-[![Jetpack Compose](https://img.shields.io/badge/UI-Jetpack%20Compose-4285F4?style=flat-square&logo=jetpackcompose&logoColor=white)](https://developer.android.com/jetpack/compose)
-[![Room Database](https://img.shields.io/badge/Database-Room%20(SQLite)-FFA000?style=flat-square&logo=sqlite&logoColor=white)](https://developer.android.com/training/data-storage/room)
-[![Gemini AI](https://img.shields.io/badge/AI-Google%20Gemini-8E75FF?style=flat-square&logo=google&logoColor=white)](https://ai.google.dev/)
-
 
 
 ## Inspiration
@@ -55,13 +50,11 @@ We built ScreenSense to automate digital wellness through an easy-to-use Android
 
 ## Accomplishments
 
-* Shipped a functional, feature-complete Android APK within a 48-hour hackathon sprint.
-* Implemented automated, zero-friction telemetry that categorizes screen usage without manual input.
-* Built a calming dark-mode user interface using Jetpack Compose and Material 3 with sub-millisecond local processing.
+* Shipped a functional, feature-complete Android APK within a 48-hour hackathon 
 
 ## How to Try It
 
-### Option 1: Download & Install the APK
+### Download & Install the APK
 
 <p align="left">
   <a href="https://screensense-ljw7fuw2.manus.space/">
