@@ -135,8 +135,10 @@ object UsageStatsHelper {
             val totalTime = stat.totalTimeInForeground
             if (totalTime < 1000) continue // Skip 0 or sub-second foreground time
 
-            // Skip internal system noise if package is self or system UI
-            if (pkg == "com.android.systemui" || pkg == context.packageName || pkg == "android") continue
+            // Skip internal system noise, self, and system launcher apps (e.g. Moto App Launcher)
+            if (pkg == "com.android.systemui" || pkg == context.packageName || pkg == "android" || isLauncherApp(pkg)) {
+                continue
+            }
 
             val appLabel = getAppLabel(pm, pkg)
             val category = categoryOverrides[pkg] ?: inferCategory(pkg, appLabel)
@@ -163,6 +165,38 @@ object UsageStatsHelper {
         }
 
         return records.sortedByDescending { it.durationMillis }
+    }
+
+    /**
+     * Checks if a package is a system or custom home screen launcher (such as Moto App Launcher).
+     */
+    fun isLauncherApp(packageName: String): Boolean {
+        val lower = packageName.lowercase()
+        return lower.endsWith(".launcher") ||
+                lower.endsWith(".launcher3") ||
+                lower.contains(".launcher.") ||
+                lower.contains(".launcher3.") ||
+                lower.contains("quickstep") ||
+                lower.contains("nexuslauncher") ||
+                lower.contains("motolauncher") ||
+                lower == "com.motorola.launcher3" ||
+                lower == "com.motorola.launcher" ||
+                lower == "com.sec.android.app.launcher" ||
+                lower == "com.miui.home" ||
+                lower == "com.oppo.launcher" ||
+                lower == "com.oneplus.launcher" ||
+                lower == "net.oneplus.launcher" ||
+                lower == "com.coloros.launcher" ||
+                lower == "com.huawei.android.launcher" ||
+                lower == "com.teslacoilsw.launcher" ||
+                lower == "com.microsoft.launcher" ||
+                lower.contains("lawnchair") ||
+                lower.contains("smartlauncher") ||
+                lower == "com.actionlauncher.playstore" ||
+                lower == "bitpit.launcher" ||
+                lower == "ginlemon.flowerfree" ||
+                lower == "com.android.launcher3" ||
+                lower == "com.android.launcher"
     }
 
     private data class AppEventData(
