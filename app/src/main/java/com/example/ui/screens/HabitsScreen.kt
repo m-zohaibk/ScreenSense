@@ -135,31 +135,49 @@ fun HabitsScreen(
             // Active Habits Section
             if (enabledHabits.isNotEmpty()) {
                 item {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Text(
-                            text = "Active Habits (${enabledHabits.size})",
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.primary,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 18.sp
-                        )
-                        val completedCount = enabledHabits.count { it.completedDates.contains(todayDateStr) }
-                        Surface(
-                            color = if (completedCount == enabledHabits.size) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant,
-                            shape = RoundedCornerShape(12.dp)
+                    Column {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            modifier = Modifier.fillMaxWidth()
                         ) {
                             Text(
-                                text = "$completedCount of ${enabledHabits.size} done today",
-                                style = MaterialTheme.typography.labelSmall,
-                                color = if (completedCount == enabledHabits.size) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurfaceVariant,
-                                fontWeight = FontWeight.SemiBold,
-                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                text = "Active Habits (${enabledHabits.size})",
+                                style = MaterialTheme.typography.titleMedium,
+                                color = MaterialTheme.colorScheme.primary,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 18.sp
                             )
+                            val completedCount = enabledHabits.count { it.completedDates.contains(todayDateStr) }
+                            Surface(
+                                color = if (completedCount == enabledHabits.size) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant,
+                                shape = RoundedCornerShape(12.dp)
+                            ) {
+                                Text(
+                                    text = "$completedCount of ${enabledHabits.size} done today",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = if (completedCount == enabledHabits.size) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurfaceVariant,
+                                    fontWeight = FontWeight.SemiBold,
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                )
+                            }
                         }
+                        Spacer(modifier = Modifier.height(8.dp))
+                        val completedCount = enabledHabits.count { it.completedDates.contains(todayDateStr) }
+                        val animatedProgress by animateFloatAsState(
+                            targetValue = if (enabledHabits.isNotEmpty()) completedCount.toFloat() / enabledHabits.size else 0f,
+                            animationSpec = spring(stiffness = Spring.StiffnessMediumLow),
+                            label = "progress"
+                        )
+                        androidx.compose.material3.LinearProgressIndicator(
+                            progress = { animatedProgress },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(8.dp)
+                                .clip(RoundedCornerShape(4.dp)),
+                            color = MaterialTheme.colorScheme.primary,
+                            trackColor = MaterialTheme.colorScheme.surfaceVariant
+                        )
                     }
                 }
 

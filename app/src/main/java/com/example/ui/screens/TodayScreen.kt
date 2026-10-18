@@ -246,51 +246,6 @@ fun TodayScreen(
                 }
             }
 
-            // Notice if user is in Sample Data Mode
-            if (preferences.isSampleDataMode) {
-                item {
-                    Surface(
-                        color = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.5f),
-                        shape = RoundedCornerShape(16.dp),
-                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.tertiary.copy(alpha = 0.3f)),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable { onSetSampleMode(false) }
-                    ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp)
-                        ) {
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
-                                modifier = Modifier.weight(1f)
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.Info,
-                                    contentDescription = null,
-                                    tint = MaterialTheme.colorScheme.onTertiaryContainer,
-                                    modifier = Modifier.size(18.dp)
-                                )
-                                Spacer(modifier = Modifier.width(8.dp))
-                                Text(
-                                    text = "Viewing Sample Data. Tap to switch to Live Data.",
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onTertiaryContainer,
-                                    fontWeight = FontWeight.Medium
-                                )
-                            }
-                            Icon(
-                                imageVector = Icons.Default.ChevronRight,
-                                contentDescription = "Switch to live data",
-                                tint = MaterialTheme.colorScheme.onTertiaryContainer,
-                                modifier = Modifier.size(16.dp)
-                            )
-                        }
-                    }
-                }
-            }
-
             // Active Focus Goal Card / Pill
             item {
                 Surface(
@@ -371,22 +326,6 @@ fun TodayScreen(
                                         fontWeight = FontWeight.Bold,
                                         letterSpacing = 1.2.sp
                                     )
-                                    Spacer(modifier = Modifier.width(8.dp))
-                                    Surface(
-                                        color = if (preferences.isSampleDataMode) MaterialTheme.colorScheme.tertiaryContainer
-                                        else MaterialTheme.colorScheme.primaryContainer,
-                                        shape = RoundedCornerShape(6.dp)
-                                    ) {
-                                        Text(
-                                            text = if (preferences.isSampleDataMode) "Sample Mode" else "Live Data",
-                                            style = MaterialTheme.typography.labelSmall,
-                                            color = if (preferences.isSampleDataMode) MaterialTheme.colorScheme.onTertiaryContainer
-                                            else MaterialTheme.colorScheme.onPrimaryContainer,
-                                            fontSize = 10.sp,
-                                            fontWeight = FontWeight.Bold,
-                                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                                        )
-                                    }
                                 }
                                 Spacer(modifier = Modifier.height(4.dp))
                                 Text(
@@ -529,24 +468,6 @@ fun TodayScreen(
                         }
 
                         Spacer(modifier = Modifier.height(14.dp))
-
-                        val animatedProgress by animateFloatAsState(
-                            targetValue = digitalEnergy / 100f,
-                            animationSpec = tween(durationMillis = 800),
-                            label = "energy_progress"
-                        )
-
-                        LinearProgressIndicator(
-                            progress = { animatedProgress },
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(8.dp)
-                                .clip(RoundedCornerShape(4.dp)),
-                            color = energyColor,
-                            trackColor = MaterialTheme.colorScheme.surfaceVariant
-                        )
-
-                        Spacer(modifier = Modifier.height(12.dp))
 
                         Surface(
                             shape = RoundedCornerShape(12.dp),
@@ -1060,7 +981,7 @@ private fun UsageAccessPromptCard(
                     colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier
-                        .weight(1f)
+                        .fillMaxWidth()
                         .testTag("grant_usage_access_button")
                 ) {
                     Icon(
@@ -1070,14 +991,6 @@ private fun UsageAccessPromptCard(
                     )
                     Spacer(modifier = Modifier.width(6.dp))
                     Text("Grant Access", fontWeight = FontWeight.Bold)
-                }
-
-                OutlinedButton(
-                    onClick = onSwitchToSample,
-                    shape = RoundedCornerShape(12.dp),
-                    modifier = Modifier.weight(0.9f)
-                ) {
-                    Text("Use Sample Data", fontSize = 12.sp)
                 }
             }
 
