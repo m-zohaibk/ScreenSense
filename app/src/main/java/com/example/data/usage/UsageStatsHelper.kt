@@ -142,6 +142,11 @@ object UsageStatsHelper {
 
             val appLabel = getAppLabel(pm, pkg)
             val category = categoryOverrides[pkg] ?: inferCategory(pkg, appLabel)
+
+            // Fix screentime: Filter out TOOLS category to prevent false screentime
+            if (category == AppCategory.TOOLS) {
+                continue
+            }
             val evtData = eventStats[pkg]
 
             val firstUsed = evtData?.firstUsed ?: (if (stat.firstTimeStamp > 0) stat.firstTimeStamp else null)

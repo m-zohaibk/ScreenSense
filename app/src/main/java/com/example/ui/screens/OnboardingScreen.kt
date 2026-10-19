@@ -406,7 +406,7 @@ private fun UsageAccessStep(
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "Screen data remains 100% on your device. You can explore with built-in sample data if you prefer.",
+                text = "Screen data remains 100% on your device.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -426,17 +426,6 @@ private fun UsageAccessStep(
                     text = "Connect Usage Access",
                     fontWeight = FontWeight.Bold
                 )
-            }
-
-            OutlinedButton(
-                onClick = onUseSample,
-                shape = RoundedCornerShape(16.dp),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp)
-                    .testTag("use_sample_data_button")
-            ) {
-                Text("Explore with Sample Data")
             }
 
             TextButton(

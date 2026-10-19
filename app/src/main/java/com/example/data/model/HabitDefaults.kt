@@ -103,6 +103,16 @@ object HabitDefaults {
             schedule = "Workdays • Mid-morning",
             safetyNote = "Leaving the work room physically helps the brain switch modes.",
             goalHint = WellnessGoal.FOCUS
+        ),
+        HabitEntity(
+            id = "habit_medicine",
+            name = "Medicine Reminder",
+            description = "Take your daily medication to stay healthy.",
+            enabled = false,
+            reminderEnabled = false,
+            schedule = "Daily • Any time",
+            safetyNote = "Always follow your doctor's instructions.",
+            goalHint = WellnessGoal.LESS_STRESS
         )
     )
 }
